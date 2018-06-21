@@ -11,6 +11,8 @@ var selectElement = document.getElementById('items');
 
 var inputElement = document.getElementById('quantity');
 
+var cartContentsPreviewDiv = document.getElementById('cartContents');
+
 // On screen load, we call this method to put all of the busmall options
 // (the things in the Product.allProducts array) into the drop down list.
 function populateForm() {
@@ -65,10 +67,15 @@ function updateCounter() {
   itemCountNavDisplay.textContent = parseInt(totalItemsInCart);
 }
 
-// TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
+// As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
-  // TODO: Get the item and quantity from the form
-  // TODO: Add a new element to the cartContents div with that information
+  // Get the item and quantity from the form
+  var itemPicked = selectElement.options[selectElement.selectedIndex].value;
+  var quantityPicked = inputElement.value;
+
+  // Add a new element to the cartContents div with that information
+  cartContentsPreviewDiv.textContent = itemPicked + " x " + quantityPicked;
+
 }
 
 // Set up the "submit" event listener on the form.
