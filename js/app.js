@@ -10,12 +10,12 @@ Cart.prototype.addItem = function(product, quantity) {
   // Fill in this instance method to create a new CartItem and add it to this.items
   var newCartItem = new CartItem(product, quantity);
   cart.items.push(newCartItem);
-  var stringifiedCart = JSON.stringify(cart.items);
-  localStorage.setItem('cart', stringifiedCart);
 };
 
 Cart.prototype.saveToLocalStorage = function() {
-  // TODO: Fill in this instance method to save the contents of the cart to localStorage
+  // Fill in this instance method to save the contents of the cart to localStorage
+  var stringifiedCart = JSON.stringify(cart.items);
+  localStorage.setItem('cart', stringifiedCart);
 };
 
 Cart.prototype.removeItem = function(item) {
