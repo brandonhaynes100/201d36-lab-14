@@ -5,21 +5,28 @@
 // Set up an empty cart for use on this page.
 var cart = new Cart([]);
 
+var optionElement;
+
+var selectElement = document.getElementById('items');
+
+var inputElement = document.getElementById('quantity');
 
 // On screen load, we call this method to put all of the busmall options
 // (the things in the Product.allProducts array) into the drop down list.
 function populateForm() {
 
-  var selectElement = document.getElementById('items');
   for (var i in Product.allProducts) {
     // create an option tag to fill the select tag
-    var optionElement = document.createElement('option');
+    optionElement = document.createElement('option');
+    // TODO: Names are in proper case, still must change to lowercase
+    optionElement.setAttribute("value", Product.allProducts[i].name)
     // change the option's content to be the name of each product
     optionElement.textContent = Product.allProducts[i].name;
     // append that option to selectELement
     selectElement.appendChild(optionElement);
   }
 
+  
 }
 
 // When someone submits the form, we need to add the selected item to the cart
@@ -27,7 +34,8 @@ function populateForm() {
 // so that it shows the # of items in the cart and a quick preview of the cart itself.
 function handleSubmit(event) {
 
-  // TODO: Prevent the page from reloading
+  // Prevent the page from reloading
+  event.preventDefault();
 
   // Do all the things ...
   addSelectedItemToCart();
@@ -39,9 +47,15 @@ function handleSubmit(event) {
 
 // TODO: Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
-  // TODO: suss out the item picked from the select list
-  // TODO: get the quantity
+
+  // suss out the item picked from the select list
+  var itemPicked = selectElement.options[selectElement.selectedIndex].value;
+ 
+  // get the quantity
+  var quantityPicked = inputElement.value;
   // TODO: using those, add one item to the Cart
+  cart.addItem(itemPicked, quantityPicked);
+
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
