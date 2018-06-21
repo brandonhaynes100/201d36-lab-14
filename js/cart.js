@@ -1,9 +1,6 @@
 /* global Cart */
 'use strict';
 
-
-
-
 // Create an event listener so that when the delete link is clicked, the removeItemFromCart method is invoked.
 var table = document.getElementById('cart');
 table.addEventListener('click', removeItemFromCart);
@@ -34,6 +31,7 @@ function showCart() {
     var currentRow = document.createElement('tr');
     // Create a TD for the delete link, quantity,  and the item
     var deleteCell = document.createElement('td');
+    deleteCell.textContent = 'X';
     var quantityCell = document.createElement('td');
     quantityCell.textContent = cart.items[i].quantity;
     var itemCell = document.createElement('td');

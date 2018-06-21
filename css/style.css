@@ -1,1 +1,30 @@
 /* TODO: Make it awesome */
+* {
+  font-family: helvetica, arial, sans-serif;
+}
+
+body {
+  background-color: blanchedalmond;
+}
+
+header {
+  text-align: center;
+  background-color: burlywood;
+}
+
+header nav ul li {
+  display: inline-block;
+}
+
+main h1 {
+  font-size: xx-large;
+}
+
+table {
+  margin: 0 auto;
+}
+
+td, th {
+ border: 2px black solid;
+ text-align: center;
+}
