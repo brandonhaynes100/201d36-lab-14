@@ -28,7 +28,6 @@ function populateForm() {
     selectElement.appendChild(optionElement);
   }
 
-  
 }
 
 // When someone submits the form, we need to add the selected item to the cart
